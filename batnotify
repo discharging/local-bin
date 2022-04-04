@@ -1,0 +1,32 @@
+#!/bin/bash
+
+while true
+do
+  status=$(cat /sys/class/power_supply/BAT1/status)
+  level=$(cat /sys/class/power_supply/BAT1/capacity)
+   if [ $level -ge 90 ] && [ $status = "Charging" ]
+   
+   then
+	  notify-send  -h int:value:$level  "Unplug power-supply"
+
+   elif [ $level -le 25 ] && [ $status = "Discharging" ]
+   
+   then
+	  notify-send --urgency=critical -h int:value:$level  "Pls charge!"
+	  alertLowBattery
+	  capacity=$status
+	  while [ "$capacity" != "Charging" ]
+	  do
+		  capacity=$(cat /sys/class/power_supply/BAT1/status)
+		  sleep 1
+	  done
+	  alertConnected
+	  pkill dunst
+	  dunst &
+
+   fi
+   
+   sleep 60
+
+done
+

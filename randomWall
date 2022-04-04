@@ -1,0 +1,4 @@
+#!/bin/bash
+imgName="/home/manjaro/Pictures/Wallpapers"/$(ls ~/Pictures/Wallpapers/ | shuf | head -n 1)
+feh --bg-fill $imgName
+

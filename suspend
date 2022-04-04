@@ -1,0 +1,3 @@
+#!/bin/bash
+systemctl suspend & i3lock -i ~/Pictures/Wallpapers/wallhaven-8o9gey.png
+

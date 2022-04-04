@@ -1,0 +1,4 @@
+#!/bin/sh
+
+paplay ~/.local/share/sounds/mixkit-high-tech-bleep-2521.ogg
+

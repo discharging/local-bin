@@ -1,0 +1,4 @@
+#!/bin/sh
+img=$(cat ~/.local/bin/wall_name)
+feh --bg-fill $img
+
